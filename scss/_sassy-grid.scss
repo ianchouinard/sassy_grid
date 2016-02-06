@@ -1,0 +1,51 @@
+/*
+::Grid layout
+*/
+@if $include-grid {
+    
+    @for $i from 1 through $column-number {
+        $col-width: 100% / $i;
+        .lg-#{$i} {
+            width: $col-width;
+        }
+    }  
+    
+    @media screen and (max-width: $col-break-medium) {
+        @for $i from 1 through $column-number {
+            .md-#{$i} {
+                $col-medium-width: 100% / $i;
+                width: $col-medium-width;
+            }
+        }
+    }
+    
+    @media screen and (max-width: $col-break-small) {
+        @for $i from 1 through $column-number {
+            .sm-#{$i} {
+                $col-small-width: 100% / $i;
+                width: $col-small-width;
+            }
+        }
+    }
+    
+    .col{
+        float: left;
+        @if $include-padding {
+            padding: $padding;
+        }
+    }
+    
+    .fl{
+        float: right;
+    }
+    
+    .grid-row{
+        width: 100%;
+        &:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+    
+}

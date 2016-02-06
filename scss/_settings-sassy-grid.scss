@@ -1,0 +1,8 @@
+
+//Grid options
+$include-grid: true;                //include grid classes?
+$column-number: 12;                 //number of columns
+$col-break-medium: 800px;           //medium responsive breakpoint (max-width)
+$col-break-small: 400px;            //small responsive breakpoint (max-width)
+$include-padding: true;             //include padding property on grid items
+$padding: 20px;                     //padding around each grid item
