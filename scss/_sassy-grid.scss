@@ -1,19 +1,33 @@
-/*
-::Grid layout
-*/
+//Grid options
+$include-grid: true;                //include grid classes?
+$column-number: 12;                 //number of columns
+$col-break-medium: 1000px;           //medium responsive breakpoint (max-width)
+$col-break-small: 720px;            //small responsive breakpoint (max-width)
+$include-padding: true;             //include padding property on grid items
+$padding: 20px;                     //padding around each grid item
+
 @if $include-grid {
     
     @for $i from 1 through $column-number {
-        $col-width: 100% / $i;
+        $new-width: 8.333% * $i;
         .lg-#{$i} {
-            width: $col-width;
+            width: $new-width;
         }
     }  
     
+    @media screen and (max-width: $col-break-tablet) {
+        @for $i from 1 through $column-number {
+            .tb-#{$i} {
+                $col-medium-width: 8.333% * $i;
+                width: $col-medium-width;
+            }
+        }
+    }
+
     @media screen and (max-width: $col-break-medium) {
         @for $i from 1 through $column-number {
             .md-#{$i} {
-                $col-medium-width: 100% / $i;
+                $col-medium-width: 8.333% * $i;
                 width: $col-medium-width;
             }
         }
@@ -22,7 +36,7 @@
     @media screen and (max-width: $col-break-small) {
         @for $i from 1 through $column-number {
             .sm-#{$i} {
-                $col-small-width: 100% / $i;
+                $col-small-width: 8.333% * $i;
                 width: $col-small-width;
             }
         }
@@ -31,7 +45,10 @@
     .col{
         float: left;
         @if $include-padding {
-            padding: $padding;
+            .col-inner {
+                padding: $padding;
+                float: none;
+            }
         }
     }
     
@@ -40,7 +57,6 @@
     }
     
     .grid-row{
-        width: 100%;
         &:after{
             content: "";
             display: block;
@@ -48,4 +64,3 @@
         }
     }
     
-}
