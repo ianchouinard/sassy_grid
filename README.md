@@ -1,11 +1,11 @@
 # sassy_grid
 Working on a lightweight grid layout with options.
 
-<h2>My personal compass/sass layout grid, feel free to try it :)</h2>
+<h2>My personal compass/sass layout grid.</h2>
 
 <p>
 Most aspects of the grid are editable options in settings-sassy-grid.scss.
-After changing settings, re-compile and viola!
+After changing settings.
 </p>
 
 <h3>Grid Options</h3>
